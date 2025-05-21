@@ -1,0 +1,165 @@
+body {
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f8fafc 0%, #e3f0ff 100%);
+    min-height: 100vh;
+    margin: 0;
+    padding: 30px 0;
+}
+
+h2, h3 {
+    text-align: center;
+    color: #2d3a4b;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+    font-size: 2em;
+}
+
+.tarea {
+    background: #fff;
+    margin: 0 auto 28px auto;
+    padding: 28px 30px;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(44, 62, 80, 0.10);
+    max-width: 650px;
+    border-left: 10px solid #7ec4cf;
+    border-right: 10px solid #f6c28b;
+    transition: box-shadow 0.2s;
+    font-size: 1.2em;
+}
+
+.tarea:hover {
+    box-shadow: 0 8px 32px rgba(44, 62, 80, 0.18);
+    border-left: 10px solid #f6c28b;
+    border-right: 10px solid #7ec4cf;
+}
+
+.tarea.completada {
+    background: #eafbe7;
+    text-decoration: line-through;
+    opacity: 0.7;
+    border-left: 10px solid #b0bec5;
+    border-right: 10px solid #b0bec5;
+}
+
+.acciones {
+    margin-top: 18px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.acciones a {
+    color: #fff;
+    background: #7ec4cf;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px 22px;
+    border-radius: 12px;
+    font-size: 1em;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+    outline: none;
+    border: none;
+}
+.acciones a:hover, .acciones a:focus {
+    background: #f6c28b;
+    color: #2d3a4b;
+}
+
+.centrado-margen {
+    text-align: center;
+    margin-top: 36px;
+}
+.centrado-margen a {
+    display: inline-block;
+    background: #f6c28b;
+    color: #2d3a4b;
+    padding: 16px 36px;
+    border-radius: 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+    transition: background 0.2s, box-shadow 0.2s;
+    outline: none;
+    border: none;
+}
+.centrado-margen a:hover, .centrado-margen a:focus {
+    background: #7ec4cf;
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(44, 62, 80, 0.15);
+}
+
+form {
+    max-width: 520px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 18px;
+    padding: 36px 32px 28px 32px;
+    box-shadow: 0 4px 24px rgba(44, 62, 80, 0.10);
+}
+
+label {
+    font-weight: bold;
+    margin-top: 22px;
+    display: block;
+    color: #7ec4cf;
+    letter-spacing: 0.5px;
+    font-size: 1.1em;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 14px;
+    margin-top: 8px;
+    border-radius: 10px;
+    border: 2px solid #b0bec5;
+    font-size: 1.1em;
+    background: #f7fafd;
+    transition: border 0.2s;
+    outline: none;
+}
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    border: 2px solid #7ec4cf;
+    background: #e3f0ff;
+}
+
+button {
+    margin-top: 28px;
+    background: linear-gradient(90deg, #7ec4cf 60%, #f6c28b 100%);
+    color: #2d3a4b;
+    padding: 16px;
+    width: 100%;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    outline: none;
+}
+button:hover, button:focus {
+    background: linear-gradient(90deg, #f6c28b 60%, #7ec4cf 100%);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(44, 62, 80, 0.15);
+}
+
+.titulo-centrado {
+    text-align: center;
+    color: #7ec4cf;
+    margin-bottom: 22px;
+    font-size: 2.2em;
+    letter-spacing: 1px;
+}
+
+/* Accesibilidad extra */
+*:focus {
+    outline: 3px solid #f6c28b;
+    outline-offset: 2px;
+} 

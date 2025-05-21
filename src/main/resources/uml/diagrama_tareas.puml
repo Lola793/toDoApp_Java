@@ -1,0 +1,71 @@
+@startuml
+' Paquete: model
+package model {
+    class Usuario {
+        - id : Long
+        - nombre : String
+        - colorPreferido : String
+        - rol : String
+    }
+
+    class Tarea {
+        - id : Long
+        - titulo : String
+        - descripcion : String
+        - fechaLimite : LocalDate
+        - completada : Boolean
+        - activa : Boolean
+    }
+
+    class Recordatorio {
+        - id : Long
+        - mensaje : String
+        - hora : LocalTime
+    }
+
+    class Categoria {
+        - id : Long
+        - nombre : String
+        - tipo : String
+    }
+
+    Usuario "1" -- "0..*" Tarea : tareas
+    Tarea "1" -- "0..1" Recordatorio : recordatorio
+    Tarea "N" -- "1" Categoria : categoria
+    Tarea "*" -- "1" Usuario : usuario
+    Recordatorio "*" -- "1" Tarea : tarea
+    Categoria "1" -- "*" Tarea : tareas
+}
+
+' Paquete: repository
+package repository {
+    interface TareaRepository
+}
+
+' Paquete: service
+package service {
+    interface TareaService {
+        + listarTodas() : List<Tarea>
+        + guardar(tarea : Tarea) : void
+        + completar(id : Long) : void
+        + eliminar(id : Long) : void
+    }
+
+    class TareaServiceImpl
+    TareaService <|.. TareaServiceImpl
+}
+
+' Paquete: controller
+package controller {
+    class TareaController {
+        + mostrarLista(model : Model, usuarioId : Long) : String
+        + mostrarFormulario(model : Model, usuarioId : Long, tareaId : Long) : String
+        + procesarFormulario(tarea : Tarea, usuarioId : Long) : String
+    }
+}
+
+' Relaciones entre paquetes
+model.Tarea -- repository.TareaRepository
+service.TareaServiceImpl ..> repository.TareaRepository
+controller.TareaController ..> service.TareaService
+@enduml 

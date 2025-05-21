@@ -1,0 +1,36 @@
+# Compilados de Java
+*.class
+
+# Archivos de log
+*.log
+
+# Directorios de Maven
+target/
+
+# Archivos de configuración de IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de entorno
+.env
+
+# Archivos de base de datos temporales
+*.h2.db
+*.mv.db
+
+# Archivos jar/war/ear generados
+*.jar
+*.war
+*.ear
+
+# Archivos de configuración personales
+*.swp
+
+# Otros
+node_modules/ 

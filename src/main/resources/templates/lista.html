@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+
+<h2>Mis tareas</h2>
+
+<div th:if="${tareas.size() == 0}">
+    <p>No tienes tareas aún. ¡Empieza por crear una!</p>
+</div>
+
+<div th:each="tarea : ${tareas}" th:class="'tarea ' + (${tarea.completada} ? 'completada' : '')">
+
+    <h3 th:text="${tarea.titulo}">[Título]</h3>
+    <p th:text="'Descripción: ' + ${tarea.descripcion}">[Descripción]</p>
+    <p th:text="'Fecha límite: ' + ${tarea.fechaLimite}">[Fecha]</p>
+    <p th:text="'Categoría: ' + ${tarea.categoria.nombre}">[Categoría]</p>
+
+    <div class="acciones">
+        <a th:if="${tarea.completada == false}" th:href="@{'/tareas/completar/' + ${tarea.id}}">Marcar como completada</a>
+        <a th:if="${tarea.completada == true}" th:href="@{'/tareas/activar/' + ${tarea.id}}">Volver a activar</a>
+        <a th:href="@{'/tareas/eliminar/' + ${tarea.id}}">Eliminar</a>
+    </div>
+
+</div>
+
+<div class="centrado-margen">
+    <a href="/tareas/nueva">&#x2795; Crear nueva tarea</a>
+</div>
+
+</body>
+</html>
