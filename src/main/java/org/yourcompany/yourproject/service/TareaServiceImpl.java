@@ -73,6 +73,13 @@ public class TareaServiceImpl implements TareaService {
      */
     @Override
     public Tarea guardar(Tarea tarea) {
+        // Si la tarea es nueva, establecemos valores por defecto para evitar nulos
+        if (tarea.getCompletada() == null) {
+            tarea.setCompletada(false);
+        }
+        if (tarea.getActiva() == null) {
+            tarea.setActiva(true);
+        }
         return tareaRepository.save(tarea);
     }
 
